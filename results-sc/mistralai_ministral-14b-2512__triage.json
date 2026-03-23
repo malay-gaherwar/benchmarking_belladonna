@@ -1,0 +1,281 @@
+{
+  "model": "mistralai/ministral-14b-2512",
+  "dataset_id": "triage",
+  "dataset_name": "TRIAGE",
+  "total": 8,
+  "correct": 4,
+  "errors": 0,
+  "accuracy": 50.0,
+  "input_tokens": 4420,
+  "output_tokens": 80,
+  "cost_usd": 0.0009,
+  "hyperparameters": {
+    "temperature": 0.7,
+    "max_tokens": 32,
+    "n_samples": 5,
+    "voting_method": "majority",
+    "prompt_format": "zero-shot MCQ with self-consistency (5 samples)",
+    "system_prompt": "You are an expert answering multiple-choice questions. Reply with ONLY the letter of the correct answer (e.g. A). Do not include any explanation.",
+    "api": "openrouter",
+    "api_url": "https://openrouter.ai/api/v1/chat/completions"
+  },
+  "timestamp": "2026-03-04T14:56:30Z",
+  "answers": [
+    {
+      "id": 0,
+      "target": 1,
+      "predicted": 3,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        }
+      ],
+      "input_tokens": 665,
+      "output_tokens": 10,
+      "cost": 0.000135
+    },
+    {
+      "id": 2,
+      "target": 3,
+      "predicted": 3,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        }
+      ],
+      "input_tokens": 555,
+      "output_tokens": 10,
+      "cost": 0.00011300000000000001
+    },
+    {
+      "id": 3,
+      "target": 1,
+      "predicted": 3,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        }
+      ],
+      "input_tokens": 450,
+      "output_tokens": 10,
+      "cost": 9.2e-05
+    },
+    {
+      "id": 4,
+      "target": 3,
+      "predicted": 3,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        }
+      ],
+      "input_tokens": 470,
+      "output_tokens": 10,
+      "cost": 9.6e-05
+    },
+    {
+      "id": 5,
+      "target": 2,
+      "predicted": 3,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        }
+      ],
+      "input_tokens": 510,
+      "output_tokens": 10,
+      "cost": 0.00010400000000000001
+    },
+    {
+      "id": 6,
+      "target": 2,
+      "predicted": 3,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        }
+      ],
+      "input_tokens": 515,
+      "output_tokens": 10,
+      "cost": 0.00010499999999999999
+    },
+    {
+      "id": 7,
+      "target": 3,
+      "predicted": 3,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        }
+      ],
+      "input_tokens": 620,
+      "output_tokens": 10,
+      "cost": 0.000126
+    },
+    {
+      "id": 8,
+      "target": 3,
+      "predicted": 3,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        }
+      ],
+      "input_tokens": 635,
+      "output_tokens": 10,
+      "cost": 0.000129
+    }
+  ]
+}

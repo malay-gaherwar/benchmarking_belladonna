@@ -1,0 +1,1305 @@
+{
+  "model": "liquid/lfm2-8b-a1b",
+  "dataset_id": "casehold",
+  "dataset_name": "CASEHOLD",
+  "total": 40,
+  "correct": 21,
+  "errors": 0,
+  "accuracy": 52.5,
+  "input_tokens": 85930,
+  "output_tokens": 639,
+  "cost_usd": 0.000872,
+  "hyperparameters": {
+    "temperature": 0.7,
+    "max_tokens": 32,
+    "n_samples": 5,
+    "voting_method": "majority",
+    "prompt_format": "zero-shot MCQ with self-consistency (5 samples)",
+    "system_prompt": "You are an expert answering multiple-choice questions. Reply with ONLY the letter of the correct answer (e.g. A). Do not include any explanation.",
+    "api": "openrouter",
+    "api_url": "https://openrouter.ai/api/v1/chat/completions"
+  },
+  "timestamp": "2026-03-04T15:01:57Z",
+  "answers": [
+    {
+      "id": 47831,
+      "target": 2,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 2340,
+      "output_tokens": 12,
+      "cost": 2.3639999999999997e-05
+    },
+    {
+      "id": 47833,
+      "target": 2,
+      "predicted": 2,
+      "correct": true,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        }
+      ],
+      "input_tokens": 2500,
+      "output_tokens": 10,
+      "cost": 2.52e-05
+    },
+    {
+      "id": 47841,
+      "target": 3,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 2135,
+      "output_tokens": 10,
+      "cost": 2.1550000000000002e-05
+    },
+    {
+      "id": 47854,
+      "target": 2,
+      "predicted": 4,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        }
+      ],
+      "input_tokens": 2340,
+      "output_tokens": 10,
+      "cost": 2.3599999999999998e-05
+    },
+    {
+      "id": 47855,
+      "target": 3,
+      "predicted": 3,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        }
+      ],
+      "input_tokens": 2325,
+      "output_tokens": 10,
+      "cost": 2.345e-05
+    },
+    {
+      "id": 47861,
+      "target": 0,
+      "predicted": 4,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        }
+      ],
+      "input_tokens": 2690,
+      "output_tokens": 10,
+      "cost": 2.7099999999999998e-05
+    },
+    {
+      "id": 47869,
+      "target": 4,
+      "predicted": 4,
+      "correct": true,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        }
+      ],
+      "input_tokens": 2750,
+      "output_tokens": 10,
+      "cost": 2.7700000000000002e-05
+    },
+    {
+      "id": 47878,
+      "target": 3,
+      "predicted": 3,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D) holding that accident report was necessary to presentation of case and exclusion was in error",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        }
+      ],
+      "input_tokens": 1570,
+      "output_tokens": 26,
+      "cost": 1.622e-05
+    },
+    {
+      "id": 47882,
+      "target": 4,
+      "predicted": 4,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        }
+      ],
+      "input_tokens": 1905,
+      "output_tokens": 10,
+      "cost": 1.925e-05
+    },
+    {
+      "id": 47908,
+      "target": 4,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "B) holding not only that court had no obligation to predict consequences but also that court could not have predicted consequences",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        }
+      ],
+      "input_tokens": 2325,
+      "output_tokens": 31,
+      "cost": 2.3870000000000004e-05
+    },
+    {
+      "id": 47953,
+      "target": 3,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 1950,
+      "output_tokens": 10,
+      "cost": 1.97e-05
+    },
+    {
+      "id": 47955,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 2225,
+      "output_tokens": 11,
+      "cost": 2.247e-05
+    },
+    {
+      "id": 47958,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 2440,
+      "output_tokens": 10,
+      "cost": 2.46e-05
+    },
+    {
+      "id": 47967,
+      "target": 0,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C) holding the Americans with Disabilities Act not to abrogate tribal sovereign immunity and declaring congress abrogates tribal immunity only where the definitive language of the statute itself",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 2335,
+      "output_tokens": 41,
+      "cost": 2.417e-05
+    },
+    {
+      "id": 47974,
+      "target": 1,
+      "predicted": 4,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        }
+      ],
+      "input_tokens": 2060,
+      "output_tokens": 10,
+      "cost": 2.08e-05
+    },
+    {
+      "id": 47986,
+      "target": 4,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 2340,
+      "output_tokens": 11,
+      "cost": 2.362e-05
+    },
+    {
+      "id": 47989,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 2390,
+      "output_tokens": 10,
+      "cost": 2.4099999999999996e-05
+    },
+    {
+      "id": 47996,
+      "target": 0,
+      "predicted": 4,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        }
+      ],
+      "input_tokens": 1985,
+      "output_tokens": 10,
+      "cost": 2.005e-05
+    },
+    {
+      "id": 48002,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 2005,
+      "output_tokens": 10,
+      "cost": 2.025e-05
+    },
+    {
+      "id": 48005,
+      "target": 0,
+      "predicted": 3,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D) holding an issue is deemed abandoned and will not be considered on appeal if the argument is raised in a brief but not supported by authority",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        }
+      ],
+      "input_tokens": 2070,
+      "output_tokens": 37,
+      "cost": 2.1439999999999998e-05
+    },
+    {
+      "id": 48022,
+      "target": 2,
+      "predicted": 4,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        }
+      ],
+      "input_tokens": 1975,
+      "output_tokens": 10,
+      "cost": 1.995e-05
+    },
+    {
+      "id": 48038,
+      "target": 1,
+      "predicted": 3,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D)",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D)",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        }
+      ],
+      "input_tokens": 2045,
+      "output_tokens": 12,
+      "cost": 2.069e-05
+    },
+    {
+      "id": 48044,
+      "target": 4,
+      "predicted": 4,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        }
+      ],
+      "input_tokens": 2510,
+      "output_tokens": 10,
+      "cost": 2.53e-05
+    },
+    {
+      "id": 48050,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 1980,
+      "output_tokens": 10,
+      "cost": 1.9999999999999998e-05
+    },
+    {
+      "id": 48061,
+      "target": 1,
+      "predicted": 0,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "A) holding that while remand is appropriate where the record may contain substantial competent evidence to support findings as to the rowe factors reversal is required where the record",
+          "predicted": 0
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        }
+      ],
+      "input_tokens": 1860,
+      "output_tokens": 40,
+      "cost": 1.94e-05
+    },
+    {
+      "id": 48064,
+      "target": 4,
+      "predicted": 0,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        }
+      ],
+      "input_tokens": 1930,
+      "output_tokens": 10,
+      "cost": 1.95e-05
+    },
+    {
+      "id": 48066,
+      "target": 4,
+      "predicted": 4,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        }
+      ],
+      "input_tokens": 2170,
+      "output_tokens": 10,
+      "cost": 2.1900000000000004e-05
+    },
+    {
+      "id": 48073,
+      "target": 3,
+      "predicted": 3,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        }
+      ],
+      "input_tokens": 1575,
+      "output_tokens": 10,
+      "cost": 1.595e-05
+    },
+    {
+      "id": 48076,
+      "target": 2,
+      "predicted": 2,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 2210,
+      "output_tokens": 10,
+      "cost": 2.23e-05
+    },
+    {
+      "id": 48084,
+      "target": 1,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "C) holding that physician was an independent contractor and thus could not sue hospital under title vii of the civil rights act of 1964",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C) holding that physician was an independent contractor and thus could not sue hospital under title vii of the civil rights act of 1964",
+          "predicted": 2
+        },
+        {
+          "raw": "C) holding that physician was an independent contractor and thus could not sue hospital under title vii of the civil rights act of 1964",
+          "predicted": 2
+        },
+        {
+          "raw": "C) holding that physician was an independent contractor and thus could not sue hospital under title vii of the civil rights act of 1964",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 2100,
+      "output_tokens": 118,
+      "cost": 2.336e-05
+    },
+    {
+      "id": 48098,
+      "target": 3,
+      "predicted": 3,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        }
+      ],
+      "input_tokens": 2200,
+      "output_tokens": 10,
+      "cost": 2.2199999999999998e-05
+    },
+    {
+      "id": 48109,
+      "target": 4,
+      "predicted": 4,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        }
+      ],
+      "input_tokens": 2495,
+      "output_tokens": 10,
+      "cost": 2.515e-05
+    },
+    {
+      "id": 48114,
+      "target": 4,
+      "predicted": 4,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        }
+      ],
+      "input_tokens": 2075,
+      "output_tokens": 10,
+      "cost": 2.0949999999999998e-05
+    },
+    {
+      "id": 48124,
+      "target": 4,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 1990,
+      "output_tokens": 10,
+      "cost": 2.0099999999999997e-05
+    },
+    {
+      "id": 48138,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 2070,
+      "output_tokens": 10,
+      "cost": 2.09e-05
+    },
+    {
+      "id": 48141,
+      "target": 2,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 2105,
+      "output_tokens": 10,
+      "cost": 2.125e-05
+    },
+    {
+      "id": 48142,
+      "target": 3,
+      "predicted": 3,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        }
+      ],
+      "input_tokens": 1905,
+      "output_tokens": 10,
+      "cost": 1.925e-05
+    },
+    {
+      "id": 48153,
+      "target": 4,
+      "predicted": 4,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        }
+      ],
+      "input_tokens": 2065,
+      "output_tokens": 10,
+      "cost": 2.085e-05
+    },
+    {
+      "id": 48177,
+      "target": 1,
+      "predicted": 0,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        }
+      ],
+      "input_tokens": 1865,
+      "output_tokens": 10,
+      "cost": 1.885e-05
+    },
+    {
+      "id": 48207,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 2125,
+      "output_tokens": 10,
+      "cost": 2.145e-05
+    }
+  ]
+}

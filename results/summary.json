@@ -1,0 +1,93 @@
+{
+  "generated": "2026-03-23T15:23:05Z",
+  "dataset_order": [
+    "expert200"
+  ],
+  "category_map": {
+    "Expert": {
+      "color": "#0f766e",
+      "bg": "#ccfbf1"
+    }
+  },
+  "heatmap_columns": [
+    {
+      "id": "expert200",
+      "label": "Expert200",
+      "type": "dataset"
+    },
+    {
+      "id": "kind::Epidemiology",
+      "label": "Epidemiology",
+      "type": "kind"
+    },
+    {
+      "id": "kind::Screening",
+      "label": "Screening",
+      "type": "kind"
+    }
+  ],
+  "models": [
+    {
+      "slug": "qwen_qwen3.5-flash-02-23__reasoning-on",
+      "model": "qwen/qwen3.5-flash-02-23",
+      "display_name": "qwen3.5-flash-02-23",
+      "reasoning": true,
+      "reasoning_effort": null,
+      "max_tokens": 4096,
+      "temperature": 0.7,
+      "params": {
+        "total": 35,
+        "active": 3,
+        "arch": "MoE"
+      },
+      "overall_accuracy": 70.0,
+      "total_correct": 7,
+      "total_questions": 10,
+      "total_errors": 0,
+      "total_input_tokens": 2902,
+      "total_output_tokens": 38091,
+      "total_cost_usd": 0.010092,
+      "categories": {
+        "Expert": {
+          "correct": 7,
+          "total": 10,
+          "errors": 0,
+          "accuracy": 70.0
+        }
+      },
+      "datasets": [
+        {
+          "dataset_id": "expert200",
+          "dataset_name": "Expert200",
+          "total": 10,
+          "correct": 7,
+          "errors": 0,
+          "accuracy": 70.0,
+          "input_tokens": 2902,
+          "output_tokens": 38091,
+          "cost_usd": 0.010092,
+          "categories": [
+            "Expert"
+          ],
+          "kind_breakdown": [
+            {
+              "kind": "Epidemiology",
+              "correct": 4,
+              "total": 4,
+              "errors": 0,
+              "accuracy": 100.0
+            },
+            {
+              "kind": "Screening",
+              "correct": 3,
+              "total": 6,
+              "errors": 0,
+              "accuracy": 50.0
+            }
+          ]
+        }
+      ],
+      "rank": 1
+    }
+  ]
+}

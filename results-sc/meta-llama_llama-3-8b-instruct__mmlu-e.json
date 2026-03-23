@@ -1,0 +1,2873 @@
+{
+  "model": "meta-llama/llama-3-8b-instruct",
+  "dataset_id": "mmlu-e",
+  "dataset_name": "MMLU-E",
+  "total": 89,
+  "correct": 31,
+  "errors": 0,
+  "accuracy": 34.83,
+  "input_tokens": 65136,
+  "output_tokens": 2194,
+  "cost_usd": 0.002452,
+  "hyperparameters": {
+    "temperature": 0.7,
+    "max_tokens": 32,
+    "n_samples": 5,
+    "voting_method": "majority",
+    "prompt_format": "zero-shot MCQ with self-consistency (5 samples)",
+    "system_prompt": "You are an expert answering multiple-choice questions. Reply with ONLY the letter of the correct answer (e.g. A). Do not include any explanation.",
+    "api": "openrouter",
+    "api_url": "https://openrouter.ai/api/v1/chat/completions"
+  },
+  "timestamp": "2026-03-04T14:42:38Z",
+  "answers": [
+    {
+      "id": 0,
+      "target": 3,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 726,
+      "output_tokens": 27,
+      "cost": 2.432e-05
+    },
+    {
+      "id": 1,
+      "target": 0,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 691,
+      "output_tokens": 27,
+      "cost": 2.32e-05
+    },
+    {
+      "id": 2,
+      "target": 3,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 722,
+      "output_tokens": 24,
+      "cost": 2.5520000000000003e-05
+    },
+    {
+      "id": 3,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 712,
+      "output_tokens": 23,
+      "cost": 2.514e-05
+    },
+    {
+      "id": 4,
+      "target": 3,
+      "predicted": 3,
+      "correct": true,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "D)",
+          "predicted": 3
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "D)",
+          "predicted": 3
+        },
+        {
+          "raw": "D)",
+          "predicted": 3
+        }
+      ],
+      "input_tokens": 693,
+      "output_tokens": 22,
+      "cost": 3.592e-05
+    },
+    {
+      "id": 5,
+      "target": 2,
+      "predicted": 2,
+      "correct": true,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 841,
+      "output_tokens": 22,
+      "cost": 2.78e-05
+    },
+    {
+      "id": 6,
+      "target": 3,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.4,
+      "samples": [
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "D)",
+          "predicted": 3
+        }
+      ],
+      "input_tokens": 743,
+      "output_tokens": 15,
+      "cost": 2.736e-05
+    },
+    {
+      "id": 7,
+      "target": 3,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 774,
+      "output_tokens": 17,
+      "cost": 3.01e-05
+    },
+    {
+      "id": 8,
+      "target": 0,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "A)",
+          "predicted": 0
+        }
+      ],
+      "input_tokens": 732,
+      "output_tokens": 23,
+      "cost": 2.582e-05
+    },
+    {
+      "id": 9,
+      "target": 2,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 697,
+      "output_tokens": 27,
+      "cost": 2.4789999999999998e-05
+    },
+    {
+      "id": 10,
+      "target": 3,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "D)",
+          "predicted": 3
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 702,
+      "output_tokens": 24,
+      "cost": 2.484e-05
+    },
+    {
+      "id": 11,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "A) Wrong, Wrong",
+          "predicted": 0
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 741,
+      "output_tokens": 26,
+      "cost": 2.4759999999999997e-05
+    },
+    {
+      "id": 12,
+      "target": 2,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 746,
+      "output_tokens": 22,
+      "cost": 2.4759999999999997e-05
+    },
+    {
+      "id": 13,
+      "target": 0,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 0.4,
+      "samples": [
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "A)",
+          "predicted": 0
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        }
+      ],
+      "input_tokens": 753,
+      "output_tokens": 20,
+      "cost": 2.7920000000000004e-05
+    },
+    {
+      "id": 14,
+      "target": 3,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 861,
+      "output_tokens": 31,
+      "cost": 2.88e-05
+    },
+    {
+      "id": 15,
+      "target": 0,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 0.4,
+      "samples": [
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        }
+      ],
+      "input_tokens": 771,
+      "output_tokens": 23,
+      "cost": 3.65e-05
+    },
+    {
+      "id": 16,
+      "target": 3,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 713,
+      "output_tokens": 24,
+      "cost": 2.664e-05
+    },
+    {
+      "id": 17,
+      "target": 2,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "D)",
+          "predicted": 3
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 697,
+      "output_tokens": 24,
+      "cost": 2.467e-05
+    },
+    {
+      "id": 18,
+      "target": 2,
+      "predicted": 2,
+      "correct": true,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 721,
+      "output_tokens": 28,
+      "cost": 3.47e-05
+    },
+    {
+      "id": 19,
+      "target": 0,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 720,
+      "output_tokens": 26,
+      "cost": 3.2840000000000004e-05
+    },
+    {
+      "id": 20,
+      "target": 3,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 768,
+      "output_tokens": 30,
+      "cost": 3.999e-05
+    },
+    {
+      "id": 21,
+      "target": 0,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 0.4,
+      "samples": [
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 742,
+      "output_tokens": 18,
+      "cost": 3.644e-05
+    },
+    {
+      "id": 22,
+      "target": 0,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "D)",
+          "predicted": 3
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 738,
+      "output_tokens": 16,
+      "cost": 2.722e-05
+    },
+    {
+      "id": 23,
+      "target": 1,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "A) Wrong, Wrong",
+          "predicted": 0
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 870,
+      "output_tokens": 19,
+      "cost": 2.6859999999999997e-05
+    },
+    {
+      "id": 24,
+      "target": 0,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 716,
+      "output_tokens": 27,
+      "cost": 2.3999999999999997e-05
+    },
+    {
+      "id": 25,
+      "target": 0,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 781,
+      "output_tokens": 27,
+      "cost": 2.608e-05
+    },
+    {
+      "id": 26,
+      "target": 0,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.4,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 756,
+      "output_tokens": 18,
+      "cost": 3.5610000000000006e-05
+    },
+    {
+      "id": 27,
+      "target": 2,
+      "predicted": 2,
+      "correct": true,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 766,
+      "output_tokens": 27,
+      "cost": 2.5600000000000002e-05
+    },
+    {
+      "id": 28,
+      "target": 2,
+      "predicted": 2,
+      "correct": true,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 707,
+      "output_tokens": 15,
+      "cost": 3.464e-05
+    },
+    {
+      "id": 29,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        }
+      ],
+      "input_tokens": 703,
+      "output_tokens": 16,
+      "cost": 3.5879999999999995e-05
+    },
+    {
+      "id": 30,
+      "target": 3,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 0.4,
+      "samples": [
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 777,
+      "output_tokens": 20,
+      "cost": 3.85e-05
+    },
+    {
+      "id": 31,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 751,
+      "output_tokens": 31,
+      "cost": 2.5280000000000002e-05
+    },
+    {
+      "id": 32,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 751,
+      "output_tokens": 31,
+      "cost": 2.5279999999999995e-05
+    },
+    {
+      "id": 33,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 792,
+      "output_tokens": 19,
+      "cost": 2.77e-05
+    },
+    {
+      "id": 34,
+      "target": 0,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 751,
+      "output_tokens": 31,
+      "cost": 2.5280000000000002e-05
+    },
+    {
+      "id": 35,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 685,
+      "output_tokens": 30,
+      "cost": 2.175e-05
+    },
+    {
+      "id": 36,
+      "target": 3,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 756,
+      "output_tokens": 17,
+      "cost": 2.488e-05
+    },
+    {
+      "id": 37,
+      "target": 1,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 0.4,
+      "samples": [
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 711,
+      "output_tokens": 22,
+      "cost": 3.37e-05
+    },
+    {
+      "id": 38,
+      "target": 0,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 726,
+      "output_tokens": 23,
+      "cost": 3.443e-05
+    },
+    {
+      "id": 39,
+      "target": 2,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "A)",
+          "predicted": 0
+        }
+      ],
+      "input_tokens": 696,
+      "output_tokens": 28,
+      "cost": 3.355e-05
+    },
+    {
+      "id": 40,
+      "target": 2,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 736,
+      "output_tokens": 27,
+      "cost": 2.464e-05
+    },
+    {
+      "id": 41,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 702,
+      "output_tokens": 28,
+      "cost": 2.5e-05
+    },
+    {
+      "id": 42,
+      "target": 3,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 721,
+      "output_tokens": 31,
+      "cost": 2.432e-05
+    },
+    {
+      "id": 43,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 0.4,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "A)",
+          "predicted": 0
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 748,
+      "output_tokens": 24,
+      "cost": 2.79e-05
+    },
+    {
+      "id": 44,
+      "target": 3,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "A)",
+          "predicted": 0
+        }
+      ],
+      "input_tokens": 732,
+      "output_tokens": 24,
+      "cost": 2.586e-05
+    },
+    {
+      "id": 45,
+      "target": 0,
+      "predicted": 0,
+      "correct": true,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "A)",
+          "predicted": 0
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        }
+      ],
+      "input_tokens": 737,
+      "output_tokens": 19,
+      "cost": 3.6240000000000005e-05
+    },
+    {
+      "id": 46,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "A)",
+          "predicted": 0
+        }
+      ],
+      "input_tokens": 692,
+      "output_tokens": 23,
+      "cost": 2.446e-05
+    },
+    {
+      "id": 47,
+      "target": 2,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "A) Wrong, Wrong",
+          "predicted": 0
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 746,
+      "output_tokens": 30,
+      "cost": 2.508e-05
+    },
+    {
+      "id": 48,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 716,
+      "output_tokens": 31,
+      "cost": 2.416e-05
+    },
+    {
+      "id": 49,
+      "target": 0,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 728,
+      "output_tokens": 20,
+      "cost": 2.7020000000000002e-05
+    },
+    {
+      "id": 50,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 797,
+      "output_tokens": 24,
+      "cost": 2.807e-05
+    },
+    {
+      "id": 51,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 733,
+      "output_tokens": 20,
+      "cost": 2.72e-05
+    },
+    {
+      "id": 52,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 702,
+      "output_tokens": 23,
+      "cost": 2.48e-05
+    },
+    {
+      "id": 53,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 726,
+      "output_tokens": 27,
+      "cost": 2.4320000000000004e-05
+    },
+    {
+      "id": 54,
+      "target": 3,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 717,
+      "output_tokens": 24,
+      "cost": 2.535e-05
+    },
+    {
+      "id": 55,
+      "target": 3,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "A)",
+          "predicted": 0
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 707,
+      "output_tokens": 28,
+      "cost": 2.517e-05
+    },
+    {
+      "id": 56,
+      "target": 0,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 696,
+      "output_tokens": 27,
+      "cost": 2.336e-05
+    },
+    {
+      "id": 57,
+      "target": 3,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "D)",
+          "predicted": 3
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 728,
+      "output_tokens": 21,
+      "cost": 2.706e-05
+    },
+    {
+      "id": 58,
+      "target": 2,
+      "predicted": 2,
+      "correct": true,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 742,
+      "output_tokens": 19,
+      "cost": 2.6e-05
+    },
+    {
+      "id": 59,
+      "target": 3,
+      "predicted": 3,
+      "correct": true,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "D)",
+          "predicted": 3
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "D)",
+          "predicted": 3
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "D)",
+          "predicted": 3
+        }
+      ],
+      "input_tokens": 698,
+      "output_tokens": 21,
+      "cost": 2.598e-05
+    },
+    {
+      "id": 60,
+      "target": 0,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "A) Wrong, Wrong",
+          "predicted": 0
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 717,
+      "output_tokens": 23,
+      "cost": 2.531e-05
+    },
+    {
+      "id": 61,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "A)",
+          "predicted": 0
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 749,
+      "output_tokens": 18,
+      "cost": 2.9189999999999997e-05
+    },
+    {
+      "id": 62,
+      "target": 3,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.4,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "D)",
+          "predicted": 3
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 711,
+      "output_tokens": 27,
+      "cost": 2.3840000000000002e-05
+    },
+    {
+      "id": 63,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 0.4,
+      "samples": [
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "I cannot provide a response for this, as it includes sexual content involving a minor. Is there anything else I can help you with?",
+          "predicted": -1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "I cannot provide information or guidance on illegal or harmful activities, including sexual assault. Is there anything else I can help you with?",
+          "predicted": -1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 752,
+      "output_tokens": 65,
+      "cost": 4.9720000000000005e-05
+    },
+    {
+      "id": 64,
+      "target": 3,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 753,
+      "output_tokens": 21,
+      "cost": 2.7960000000000003e-05
+    },
+    {
+      "id": 65,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 0.4,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "D)",
+          "predicted": 3
+        }
+      ],
+      "input_tokens": 697,
+      "output_tokens": 24,
+      "cost": 2.467e-05
+    },
+    {
+      "id": 66,
+      "target": 3,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 682,
+      "output_tokens": 32,
+      "cost": 2.448e-05
+    },
+    {
+      "id": 67,
+      "target": 3,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 721,
+      "output_tokens": 22,
+      "cost": 2.396e-05
+    },
+    {
+      "id": 68,
+      "target": 3,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 678,
+      "output_tokens": 29,
+      "cost": 2.558e-05
+    },
+    {
+      "id": 69,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 721,
+      "output_tokens": 22,
+      "cost": 2.396e-05
+    },
+    {
+      "id": 70,
+      "target": 0,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 782,
+      "output_tokens": 23,
+      "cost": 2.752e-05
+    },
+    {
+      "id": 71,
+      "target": 0,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 717,
+      "output_tokens": 28,
+      "cost": 2.5509999999999998e-05
+    },
+    {
+      "id": 72,
+      "target": 2,
+      "predicted": 2,
+      "correct": true,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 742,
+      "output_tokens": 23,
+      "cost": 2.616e-05
+    },
+    {
+      "id": 73,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 0.4,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "A) Wrong, Wrong",
+          "predicted": 0
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 736,
+      "output_tokens": 26,
+      "cost": 2.4599999999999998e-05
+    },
+    {
+      "id": 74,
+      "target": 3,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 720,
+      "output_tokens": 31,
+      "cost": 3.334e-05
+    },
+    {
+      "id": 75,
+      "target": 1,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 0.4,
+      "samples": [
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 696,
+      "output_tokens": 22,
+      "cost": 2.3160000000000002e-05
+    },
+    {
+      "id": 76,
+      "target": 3,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 776,
+      "output_tokens": 27,
+      "cost": 2.592e-05
+    },
+    {
+      "id": 77,
+      "target": 0,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 703,
+      "output_tokens": 21,
+      "cost": 2.616e-05
+    },
+    {
+      "id": 78,
+      "target": 2,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 725,
+      "output_tokens": 30,
+      "cost": 2.2950000000000002e-05
+    },
+    {
+      "id": 79,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "A)",
+          "predicted": 0
+        }
+      ],
+      "input_tokens": 732,
+      "output_tokens": 24,
+      "cost": 2.586e-05
+    },
+    {
+      "id": 80,
+      "target": 2,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 720,
+      "output_tokens": 30,
+      "cost": 2.2800000000000002e-05
+    },
+    {
+      "id": 81,
+      "target": 2,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 715,
+      "output_tokens": 25,
+      "cost": 2.2449999999999997e-05
+    },
+    {
+      "id": 82,
+      "target": 0,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 716,
+      "output_tokens": 22,
+      "cost": 2.3799999999999996e-05
+    },
+    {
+      "id": 83,
+      "target": 0,
+      "predicted": 0,
+      "correct": true,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "A)",
+          "predicted": 0
+        },
+        {
+          "raw": "A)",
+          "predicted": 0
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "A)",
+          "predicted": 0
+        }
+      ],
+      "input_tokens": 729,
+      "output_tokens": 18,
+      "cost": 2.843e-05
+    },
+    {
+      "id": 84,
+      "target": 3,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 0.4,
+      "samples": [
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "A) Wrong, Wrong",
+          "predicted": 0
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 722,
+      "output_tokens": 28,
+      "cost": 3.6179999999999996e-05
+    },
+    {
+      "id": 85,
+      "target": 3,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "D)",
+          "predicted": 3
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 711,
+      "output_tokens": 27,
+      "cost": 2.3840000000000002e-05
+    },
+    {
+      "id": 86,
+      "target": 2,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 735,
+      "output_tokens": 30,
+      "cost": 2.3250000000000003e-05
+    },
+    {
+      "id": 87,
+      "target": 3,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C) Not wrong, Wrong",
+          "predicted": 2
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 667,
+      "output_tokens": 24,
+      "cost": 2.365e-05
+    },
+    {
+      "id": 88,
+      "target": 3,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        },
+        {
+          "raw": "B) Wrong, Not wrong",
+          "predicted": 1
+        },
+        {
+          "raw": "C)",
+          "predicted": 2
+        },
+        {
+          "raw": "B)",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 708,
+      "output_tokens": 21,
+      "cost": 2.6340000000000002e-05
+    }
+  ]
+}

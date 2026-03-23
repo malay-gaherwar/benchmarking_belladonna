@@ -1,0 +1,1369 @@
+{
+  "model": "liquid/lfm2-8b-a1b",
+  "dataset_id": "medcalc",
+  "dataset_name": "MedCalc",
+  "total": 42,
+  "correct": 12,
+  "errors": 0,
+  "accuracy": 28.57,
+  "input_tokens": 125225,
+  "output_tokens": 654,
+  "cost_usd": 0.001265,
+  "hyperparameters": {
+    "temperature": 0.7,
+    "max_tokens": 32,
+    "n_samples": 5,
+    "voting_method": "majority",
+    "prompt_format": "zero-shot MCQ with self-consistency (5 samples)",
+    "system_prompt": "You are an expert answering multiple-choice questions. Reply with ONLY the letter of the correct answer (e.g. A). Do not include any explanation.",
+    "api": "openrouter",
+    "api_url": "https://openrouter.ai/api/v1/chat/completions"
+  },
+  "timestamp": "2026-03-04T15:02:52Z",
+  "answers": [
+    {
+      "id": 40,
+      "target": 1,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "D) 6",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 4240,
+      "output_tokens": 13,
+      "cost": 4.2659999999999995e-05
+    },
+    {
+      "id": 41,
+      "target": 2,
+      "predicted": 0,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        }
+      ],
+      "input_tokens": 1750,
+      "output_tokens": 10,
+      "cost": 1.77e-05
+    },
+    {
+      "id": 42,
+      "target": 3,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C) 10",
+          "predicted": 2
+        },
+        {
+          "raw": "C) 10",
+          "predicted": 2
+        },
+        {
+          "raw": "C) 10",
+          "predicted": 2
+        },
+        {
+          "raw": "C) 10",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 4755,
+      "output_tokens": 22,
+      "cost": 4.798999999999999e-05
+    },
+    {
+      "id": 43,
+      "target": 0,
+      "predicted": 4,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "E) 6",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        }
+      ],
+      "input_tokens": 3810,
+      "output_tokens": 13,
+      "cost": 3.835999999999999e-05
+    },
+    {
+      "id": 44,
+      "target": 2,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.4,
+      "samples": [
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "B) 6",
+          "predicted": 1
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "B) 6",
+          "predicted": 1
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 2360,
+      "output_tokens": 16,
+      "cost": 2.392e-05
+    },
+    {
+      "id": 45,
+      "target": 3,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 2630,
+      "output_tokens": 10,
+      "cost": 2.65e-05
+    },
+    {
+      "id": 46,
+      "target": 0,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "E) -3",
+          "predicted": 4
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 6710,
+      "output_tokens": 13,
+      "cost": 6.735999999999999e-05
+    },
+    {
+      "id": 47,
+      "target": 0,
+      "predicted": 0,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "A) 4",
+          "predicted": 0
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "A) 4",
+          "predicted": 0
+        },
+        {
+          "raw": "A) 4",
+          "predicted": 0
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        }
+      ],
+      "input_tokens": 4960,
+      "output_tokens": 19,
+      "cost": 4.9980000000000006e-05
+    },
+    {
+      "id": 48,
+      "target": 4,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 3675,
+      "output_tokens": 10,
+      "cost": 3.6950000000000004e-05
+    },
+    {
+      "id": 49,
+      "target": 4,
+      "predicted": 4,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "E) 0",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E) 0",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        }
+      ],
+      "input_tokens": 3165,
+      "output_tokens": 16,
+      "cost": 3.197e-05
+    },
+    {
+      "id": 50,
+      "target": 0,
+      "predicted": 3,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "E) 1",
+          "predicted": 4
+        },
+        {
+          "raw": "C) 5",
+          "predicted": 2
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        }
+      ],
+      "input_tokens": 4610,
+      "output_tokens": 16,
+      "cost": 4.641999999999999e-05
+    },
+    {
+      "id": 51,
+      "target": 3,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "C) 1",
+          "predicted": 2
+        },
+        {
+          "raw": "C) 1",
+          "predicted": 2
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "C) 1",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 7690,
+      "output_tokens": 19,
+      "cost": 7.728000000000002e-05
+    },
+    {
+      "id": 52,
+      "target": 0,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        }
+      ],
+      "input_tokens": 2220,
+      "output_tokens": 10,
+      "cost": 2.2400000000000002e-05
+    },
+    {
+      "id": 53,
+      "target": 2,
+      "predicted": 2,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "C) 0",
+          "predicted": 2
+        },
+        {
+          "raw": "C) 0",
+          "predicted": 2
+        },
+        {
+          "raw": "C) 0",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C) 0",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 1720,
+      "output_tokens": 22,
+      "cost": 1.764e-05
+    },
+    {
+      "id": 54,
+      "target": 4,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 0.4,
+      "samples": [
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "B) -3",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 4630,
+      "output_tokens": 13,
+      "cost": 4.656000000000001e-05
+    },
+    {
+      "id": 55,
+      "target": 3,
+      "predicted": 3,
+      "correct": true,
+      "agreement": 0.4,
+      "samples": [
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "E) 4",
+          "predicted": 4
+        }
+      ],
+      "input_tokens": 4120,
+      "output_tokens": 13,
+      "cost": 4.146e-05
+    },
+    {
+      "id": 56,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B) 3",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 3225,
+      "output_tokens": 13,
+      "cost": 3.251e-05
+    },
+    {
+      "id": 57,
+      "target": 1,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "C) 3",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 6695,
+      "output_tokens": 13,
+      "cost": 6.721e-05
+    },
+    {
+      "id": 58,
+      "target": 3,
+      "predicted": 3,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D) 4",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        }
+      ],
+      "input_tokens": 3440,
+      "output_tokens": 13,
+      "cost": 3.4660000000000004e-05
+    },
+    {
+      "id": 59,
+      "target": 2,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.4,
+      "samples": [
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "D) 5",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 2370,
+      "output_tokens": 13,
+      "cost": 2.396e-05
+    },
+    {
+      "id": 199,
+      "target": 2,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B) 11",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "E) 5",
+          "predicted": 4
+        },
+        {
+          "raw": "E) 5",
+          "predicted": 4
+        }
+      ],
+      "input_tokens": 1975,
+      "output_tokens": 19,
+      "cost": 2.0130000000000002e-05
+    },
+    {
+      "id": 200,
+      "target": 2,
+      "predicted": 2,
+      "correct": true,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 2665,
+      "output_tokens": 10,
+      "cost": 2.6850000000000002e-05
+    },
+    {
+      "id": 201,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B) 9",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 1465,
+      "output_tokens": 13,
+      "cost": 1.491e-05
+    },
+    {
+      "id": 202,
+      "target": 1,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 1505,
+      "output_tokens": 10,
+      "cost": 1.525e-05
+    },
+    {
+      "id": 203,
+      "target": 2,
+      "predicted": 2,
+      "correct": true,
+      "agreement": 0.4,
+      "samples": [
+        {
+          "raw": "B) 7",
+          "predicted": 1
+        },
+        {
+          "raw": "C) 8",
+          "predicted": 2
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "D) 10",
+          "predicted": 3
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 1530,
+      "output_tokens": 19,
+      "cost": 1.568e-05
+    },
+    {
+      "id": 204,
+      "target": 3,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "B) 3",
+          "predicted": 1
+        },
+        {
+          "raw": "B) 3",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B) 3",
+          "predicted": 1
+        },
+        {
+          "raw": "B) 3",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 1570,
+      "output_tokens": 22,
+      "cost": 1.6139999999999998e-05
+    },
+    {
+      "id": 205,
+      "target": 3,
+      "predicted": 1,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 1555,
+      "output_tokens": 10,
+      "cost": 1.575e-05
+    },
+    {
+      "id": 206,
+      "target": 0,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "C) 15",
+          "predicted": 2
+        },
+        {
+          "raw": "C) 15",
+          "predicted": 2
+        },
+        {
+          "raw": "B) 7",
+          "predicted": 1
+        },
+        {
+          "raw": "C) 15",
+          "predicted": 2
+        },
+        {
+          "raw": "B) 7",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 1455,
+      "output_tokens": 25,
+      "cost": 1.505e-05
+    },
+    {
+      "id": 207,
+      "target": 2,
+      "predicted": 2,
+      "correct": true,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "C) 6",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 1400,
+      "output_tokens": 13,
+      "cost": 1.4259999999999999e-05
+    },
+    {
+      "id": 208,
+      "target": 1,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "C) 14",
+          "predicted": 2
+        },
+        {
+          "raw": "C) 14",
+          "predicted": 2
+        },
+        {
+          "raw": "C) 14",
+          "predicted": 2
+        },
+        {
+          "raw": "C) 14",
+          "predicted": 2
+        },
+        {
+          "raw": "C) 14",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 1615,
+      "output_tokens": 25,
+      "cost": 1.6649999999999998e-05
+    },
+    {
+      "id": 209,
+      "target": 1,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "C) 2",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C) 2",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 1590,
+      "output_tokens": 16,
+      "cost": 1.622e-05
+    },
+    {
+      "id": 210,
+      "target": 0,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "C) 5",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C) 5",
+          "predicted": 2
+        },
+        {
+          "raw": "C) 5",
+          "predicted": 2
+        },
+        {
+          "raw": "C) 5",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 1435,
+      "output_tokens": 22,
+      "cost": 1.479e-05
+    },
+    {
+      "id": 211,
+      "target": 3,
+      "predicted": 0,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "B) 4",
+          "predicted": 1
+        },
+        {
+          "raw": "A) 3",
+          "predicted": 0
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "A) 3",
+          "predicted": 0
+        }
+      ],
+      "input_tokens": 1450,
+      "output_tokens": 19,
+      "cost": 1.4879999999999998e-05
+    },
+    {
+      "id": 212,
+      "target": 0,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "E) 2",
+          "predicted": 4
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 1535,
+      "output_tokens": 13,
+      "cost": 1.561e-05
+    },
+    {
+      "id": 213,
+      "target": 2,
+      "predicted": 0,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "C) 6",
+          "predicted": 2
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "A) 2",
+          "predicted": 0
+        }
+      ],
+      "input_tokens": 1610,
+      "output_tokens": 16,
+      "cost": 1.642e-05
+    },
+    {
+      "id": 214,
+      "target": 1,
+      "predicted": 0,
+      "correct": false,
+      "agreement": 0.8,
+      "samples": [
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "A) 13",
+          "predicted": 0
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "A) 13",
+          "predicted": 0
+        }
+      ],
+      "input_tokens": 1610,
+      "output_tokens": 16,
+      "cost": 1.642e-05
+    },
+    {
+      "id": 215,
+      "target": 4,
+      "predicted": 3,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "D) 1",
+          "predicted": 3
+        },
+        {
+          "raw": "C) 3",
+          "predicted": 2
+        },
+        {
+          "raw": "D) 1",
+          "predicted": 3
+        }
+      ],
+      "input_tokens": 1540,
+      "output_tokens": 19,
+      "cost": 1.578e-05
+    },
+    {
+      "id": 216,
+      "target": 4,
+      "predicted": 4,
+      "correct": true,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "D) 6",
+          "predicted": 3
+        },
+        {
+          "raw": "E) 9",
+          "predicted": 4
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        },
+        {
+          "raw": "D) 6",
+          "predicted": 3
+        },
+        {
+          "raw": "E) 9",
+          "predicted": 4
+        }
+      ],
+      "input_tokens": 1655,
+      "output_tokens": 22,
+      "cost": 1.6989999999999998e-05
+    },
+    {
+      "id": 217,
+      "target": 3,
+      "predicted": 2,
+      "correct": false,
+      "agreement": 0.6,
+      "samples": [
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "C) 10",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "E",
+          "predicted": 4
+        }
+      ],
+      "input_tokens": 1630,
+      "output_tokens": 13,
+      "cost": 1.656e-05
+    },
+    {
+      "id": 218,
+      "target": 1,
+      "predicted": 1,
+      "correct": true,
+      "agreement": 1.0,
+      "samples": [
+        {
+          "raw": "B) 9",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B) 9",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        }
+      ],
+      "input_tokens": 1465,
+      "output_tokens": 16,
+      "cost": 1.497e-05
+    },
+    {
+      "id": 219,
+      "target": 1,
+      "predicted": 3,
+      "correct": false,
+      "agreement": 0.4,
+      "samples": [
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        },
+        {
+          "raw": "B",
+          "predicted": 1
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        },
+        {
+          "raw": "C",
+          "predicted": 2
+        }
+      ],
+      "input_tokens": 8785,
+      "output_tokens": 10,
+      "cost": 8.805e-05
+    },
+    {
+      "id": 220,
+      "target": 3,
+      "predicted": 4,
+      "correct": false,
+      "agreement": 0.4,
+      "samples": [
+        {
+          "raw": "E) -4",
+          "predicted": 4
+        },
+        {
+          "raw": "A) -3",
+          "predicted": 0
+        },
+        {
+          "raw": "A",
+          "predicted": 0
+        },
+        {
+          "raw": "E) -4",
+          "predicted": 4
+        },
+        {
+          "raw": "D",
+          "predicted": 3
+        }
+      ],
+      "input_tokens": 5410,
+      "output_tokens": 19,
+      "cost": 5.448000000000001e-05
+    }
+  ]
+}
