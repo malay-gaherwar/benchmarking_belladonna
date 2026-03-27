@@ -1,36 +1,29 @@
 #!/usr/bin/env python3
 """Build summary.json for the EdgeCase dashboard.
 
-Current setup:
-- focuses on the Expert200 dataset
+Features:
+- reads result files from results/
 - skips aggregate files like raw_summary.json / summary.json
-- computes per-kind accuracy breakdown from dataset question metadata
-- keeps reasoning-on / reasoning-off variants separate
-
-Usage:
-    python3 bench/build_dashboard.py
+- supports wrapped dataset files: {meta, questions}
+- derives dataset metadata from dataset JSON instead of hardcoding
+- computes per-kind accuracy breakdown
+- builds heatmap columns dynamically:
+    - one overall column per dataset
+    - one column per kind within each dataset
 """
+
+from __future__ import annotations
 
 import json
 import re
 import time
 from pathlib import Path
 
-RESULTS_DIR = Path(__file__).resolve().parent.parent / "results"
 ROOT_DIR = Path(__file__).resolve().parent.parent
+RESULTS_DIR = ROOT_DIR / "results"
+BENCHMARKS_DIR = ROOT_DIR / "resources" / "benchmarks"
 
-DATASET_ORDER = [
-    "expert200",
-]
-
-CATEGORY_MAP = {
-    "Expert": {
-        "color": "#0f766e",
-        "bg": "#ccfbf1",
-        "datasets": ["expert200"],
-    },
-}
-
+# Optional model metadata only for prettier labels.
 MODEL_PARAMS = {
     "liquid/lfm2-8b-a1b": {"total": 8, "active": 1, "arch": "MoE"},
     "mistralai/ministral-14b-2512": {"total": 14, "active": 14, "arch": "dense"},
@@ -50,22 +43,25 @@ MODEL_PARAMS = {
     "mistralai/ministral-3b-2512": {"total": 3, "active": 3, "arch": "dense"},
 }
 
-DATASET_CATEGORIES = {
-    "expert200": ["Expert"],
-}
 
-DATASET_FILE_MAP = {
-    "expert200": ROOT_DIR / "resources" / "benchmarks" / "expert" / "200expertquestions.json",
-}
-
-
-def load_result(path):
-    with open(path) as f:
+def load_json(path: Path):
+    with open(path, encoding="utf-8") as f:
         return json.load(f)
 
 
-def parse_filename(filename):
-    """Parse result filename to extract model_slug, reasoning flag, effort, and dataset_id."""
+def display_name(model_name: str) -> str:
+    return model_name.split("/")[-1]
+
+
+def parse_filename(filename: str):
+    """Parse result filename.
+
+    Supported patterns:
+      modelslug__reasoning-on-medium__datasetid.json
+      modelslug__reasoning-on__datasetid.json
+      modelslug__reasoning-off__datasetid.json
+      modelslug__datasetid.json
+    """
     name = filename.removesuffix(".json")
 
     m = re.match(r"^(.+)__(reasoning-(on|off)(?:-(\w+))?)__(.+)$", name)
@@ -84,31 +80,61 @@ def parse_filename(filename):
     return name, None, None, None
 
 
-def display_name(model_name):
-    return model_name.split("/")[-1]
+def find_dataset_file(dataset_id: str) -> Path | None:
+    """Find the dataset JSON file by meta.id or fallback filename match."""
+    candidates = list(BENCHMARKS_DIR.rglob("*.json"))
+
+    # First try reading wrapped files and matching meta.id
+    for path in candidates:
+        try:
+            raw = load_json(path)
+        except Exception:
+            continue
+
+        if isinstance(raw, dict):
+            meta = raw.get("meta", {})
+            if meta.get("id") == dataset_id:
+                return path
+
+    # Fallback: filename contains dataset_id
+    for path in candidates:
+        if dataset_id in path.name:
+            return path
+
+    return None
 
 
-def load_dataset_questions(dataset_id):
-    path = DATASET_FILE_MAP.get(dataset_id)
-    if not path or not path.exists():
-        return []
+def load_dataset_bundle(dataset_id: str):
+    """Return (meta, questions) for a dataset id."""
+    path = find_dataset_file(dataset_id)
+    if path is None:
+        return None, []
 
-    with open(path, encoding="utf-8") as f:
-        raw = json.load(f)
+    raw = load_json(path)
 
-    if isinstance(raw, dict) and "questions" in raw:
-        return raw["questions"]
+    if isinstance(raw, dict):
+        meta = raw.get("meta", {}) or {}
+        questions = raw.get("questions", []) or []
+        return meta, questions
+
     if isinstance(raw, list):
-        return raw
-    return []
+        meta = {
+            "id": dataset_id,
+            "name": dataset_id,
+            "abbrev": dataset_id,
+            "source": dataset_id,
+            "sourceNote": "",
+            "license": "—",
+            "description": dataset_id,
+            "taskType": "Multiple-choice benchmark",
+            "categories": [],
+        }
+        return meta, raw
+
+    return None, []
 
 
-def build_kind_breakdown(dataset_id, result_data):
-    """Compute per-kind accuracy using dataset file + saved answers."""
-    questions = load_dataset_questions(dataset_id)
-    if not questions:
-        return []
-
+def build_kind_breakdown(questions: list[dict], result_data: dict):
     id_to_kind = {}
     for q in questions:
         qid = q.get("id")
@@ -147,22 +173,23 @@ def build_kind_breakdown(dataset_id, result_data):
 
 
 def build():
-    model_results = {}
+    result_files = [
+        f for f in sorted(RESULTS_DIR.glob("*.json"))
+        if f.name not in ("summary.json", "raw_summary.json")
+    ]
 
-    for f in sorted(RESULTS_DIR.glob("*.json")):
-        if f.name in ("summary.json", "raw_summary.json"):
-            continue
+    model_results: dict[tuple, dict] = {}
+    dataset_meta_by_id: dict[str, dict] = {}
+    dataset_questions_by_id: dict[str, list] = {}
 
-        data = load_result(f)
+    # Read results and gather dataset ids
+    for f in result_files:
+        data = load_json(f)
         if "model" not in data or "dataset_id" not in data:
-            print(f"  SKIP non-result file: {f.name}")
+            print(f"SKIP non-result file: {f.name}")
             continue
 
         ds_id = data["dataset_id"]
-        if ds_id not in DATASET_ORDER:
-            print(f"  SKIP {f.name}: dataset '{ds_id}' not in dashboard dataset list")
-            continue
-
         model = data["model"]
 
         hyper = data.get("hyperparameters", {})
@@ -175,11 +202,47 @@ def build():
             effort = effort_from_file
 
         key = (model, reasoning, effort)
-        if key not in model_results:
-            model_results[key] = {}
-        model_results[key][ds_id] = data
+        model_results.setdefault(key, {})[ds_id] = data
+
+        if ds_id not in dataset_meta_by_id:
+            meta, questions = load_dataset_bundle(ds_id)
+            dataset_meta_by_id[ds_id] = meta or {
+                "id": ds_id,
+                "name": data.get("dataset_name", ds_id),
+                "abbrev": ds_id,
+                "source": data.get("dataset_name", ds_id),
+                "sourceNote": "",
+                "license": "—",
+                "description": data.get("dataset_name", ds_id),
+                "taskType": "Multiple-choice benchmark",
+                "categories": [],
+            }
+            dataset_questions_by_id[ds_id] = questions or []
+
+    dataset_order = sorted(dataset_meta_by_id.keys())
+
+    # Build category map dynamically from dataset meta.categories
+    category_names = set()
+    for meta in dataset_meta_by_id.values():
+        for c in meta.get("categories", []):
+            category_names.add(c)
+
+    default_palette = [
+        ("#0f766e", "#ccfbf1"),
+        ("#1d4ed8", "#dbeafe"),
+        ("#9d174d", "#fce7f3"),
+        ("#92400e", "#fef3c7"),
+        ("#166534", "#dcfce7"),
+        ("#6d28d9", "#ede9fe"),
+    ]
+    category_map = {}
+    for i, cat in enumerate(sorted(category_names)):
+        color, bg = default_palette[i % len(default_palette)]
+        category_map[cat] = {"color": color, "bg": bg}
 
     complete_models = {}
+    required_datasets = set(dataset_order)
+
     for (model, reasoning, effort), datasets in model_results.items():
         tag = display_name(model)
         if reasoning is True:
@@ -187,17 +250,17 @@ def build():
         elif reasoning is False:
             tag += " (no-think)"
 
-        if set(datasets.keys()) != set(DATASET_ORDER):
-            missing = set(DATASET_ORDER) - set(datasets.keys())
-            print(f"  SKIP {tag}: missing datasets {missing}")
+        if set(datasets.keys()) != required_datasets:
+            missing = required_datasets - set(datasets.keys())
+            print(f"SKIP {tag}: missing datasets {missing}")
             continue
 
         all_complete = True
-        for ds_id in DATASET_ORDER:
+        for ds_id in dataset_order:
             data = datasets[ds_id]
             n_answers = len(data.get("answers", []))
             if n_answers < data["total"]:
-                print(f"  SKIP {tag}: {ds_id} incomplete ({n_answers}/{data['total']})")
+                print(f"SKIP {tag}: {ds_id} incomplete ({n_answers}/{data['total']})")
                 all_complete = False
                 break
 
@@ -207,7 +270,18 @@ def build():
     print(f"\n{len(complete_models)} complete model config(s) out of {len(model_results)} total\n")
 
     models_out = []
-    all_kinds = set()
+    heatmap_columns = []
+    seen_kind_columns = set()
+
+    # Add one overall column per dataset
+    for ds_id in dataset_order:
+        meta = dataset_meta_by_id[ds_id]
+        heatmap_columns.append({
+            "id": ds_id,
+            "label": meta.get("name", ds_id),
+            "type": "dataset",
+            "dataset_id": ds_id,
+        })
 
     for (model, reasoning, effort), datasets in complete_models.items():
         slug = model.replace("/", "_")
@@ -219,7 +293,7 @@ def build():
             slug += "__reasoning-off"
 
         name = display_name(model)
-        first_ds = datasets[DATASET_ORDER[0]]
+        first_ds = datasets[dataset_order[0]]
 
         hyper = first_ds.get("hyperparameters", {})
         max_tokens = hyper.get("max_tokens", None)
@@ -234,17 +308,29 @@ def build():
         total_output_tokens = 0
         total_cost = 0.0
 
-        for ds_id in DATASET_ORDER:
+        category_stats = {}
+
+        for ds_id in dataset_order:
             d = datasets[ds_id]
+            meta = dataset_meta_by_id[ds_id]
+            questions = dataset_questions_by_id[ds_id]
             cost = d.get("cost_usd", 0) or 0
-            kind_breakdown = build_kind_breakdown(ds_id, d)
+            kind_breakdown = build_kind_breakdown(questions, d)
 
             for kb in kind_breakdown:
-                all_kinds.add(kb["kind"])
+                col_id = f"{ds_id}::kind::{kb['kind']}"
+                if col_id not in seen_kind_columns:
+                    heatmap_columns.append({
+                        "id": col_id,
+                        "label": kb["kind"],
+                        "type": "kind",
+                        "dataset_id": ds_id,
+                    })
+                    seen_kind_columns.add(col_id)
 
             per_dataset.append({
                 "dataset_id": ds_id,
-                "dataset_name": d["dataset_name"],
+                "dataset_name": meta.get("name", d["dataset_name"]),
                 "total": d["total"],
                 "correct": d["correct"],
                 "errors": d["errors"],
@@ -252,7 +338,7 @@ def build():
                 "input_tokens": d["input_tokens"],
                 "output_tokens": d["output_tokens"],
                 "cost_usd": cost,
-                "categories": DATASET_CATEGORIES.get(ds_id, []),
+                "categories": meta.get("categories", []),
                 "kind_breakdown": kind_breakdown,
             })
 
@@ -263,28 +349,18 @@ def build():
             total_output_tokens += d["output_tokens"]
             total_cost += cost
 
+            for cat in meta.get("categories", []):
+                category_stats.setdefault(cat, {"correct": 0, "total": 0, "errors": 0})
+                category_stats[cat]["correct"] += d["correct"]
+                category_stats[cat]["total"] += d["total"]
+                category_stats[cat]["errors"] += d["errors"]
+
+        for cat, stats in category_stats.items():
+            stats["accuracy"] = round(
+                stats["correct"] / max(stats["total"] - stats["errors"], 1) * 100, 2
+            )
+
         overall_accuracy = round(total_correct / max(total_questions - total_errors, 1) * 100, 2)
-
-        category_stats = {}
-        for cat_name, cat_info in CATEGORY_MAP.items():
-            cat_correct = 0
-            cat_total = 0
-            cat_errors = 0
-
-            for ds_id in cat_info["datasets"]:
-                if ds_id in datasets:
-                    d = datasets[ds_id]
-                    cat_correct += d["correct"]
-                    cat_total += d["total"]
-                    cat_errors += d["errors"]
-
-            cat_accuracy = round(cat_correct / max(cat_total - cat_errors, 1) * 100, 2) if cat_total > 0 else 0
-            category_stats[cat_name] = {
-                "correct": cat_correct,
-                "total": cat_total,
-                "errors": cat_errors,
-                "accuracy": cat_accuracy,
-            }
 
         models_out.append({
             "slug": slug,
@@ -306,33 +382,23 @@ def build():
             "datasets": per_dataset,
         })
 
-    models_out = [m for m in models_out if m["total_questions"] > 0]
     models_out.sort(key=lambda m: m["overall_accuracy"], reverse=True)
-
     for i, m in enumerate(models_out):
         m["rank"] = i + 1
 
-    heatmap_columns = [{"id": "expert200", "label": "Expert200", "type": "dataset"}]
-    for kind in sorted(all_kinds):
-        heatmap_columns.append({
-            "id": f"kind::{kind}",
-            "label": kind,
-            "type": "kind",
-        })
-
     summary = {
         "generated": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
-        "dataset_order": DATASET_ORDER,
-        "category_map": {
-            name: {"color": info["color"], "bg": info["bg"]}
-            for name, info in CATEGORY_MAP.items()
-        },
+        "dataset_order": dataset_order,
+        "datasets": [
+            dataset_meta_by_id[ds_id] for ds_id in dataset_order
+        ],
+        "category_map": category_map,
         "heatmap_columns": heatmap_columns,
         "models": models_out,
     }
 
     out_path = RESULTS_DIR / "summary.json"
-    out_path.write_text(json.dumps(summary, indent=2))
+    out_path.write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"Summary written to {out_path}")
 
     for m in models_out:

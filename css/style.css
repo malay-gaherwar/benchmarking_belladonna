@@ -617,38 +617,33 @@ footer a:hover { color: #472183; }
     margin-bottom: 1rem;
 }
 
-/* Cost vs Performance small multiples grid */
+/* Cost vs Performance */
 .cost-perf-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.75rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
 }
-@media (max-width: 1200px) { .cost-perf-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 768px)  { .cost-perf-grid { grid-template-columns: repeat(2, 1fr); } }
+
 .cost-perf-panel {
     border: 1px solid #e5e7eb;
     border-radius: 6px;
-    padding: 0.5rem;
+    padding: 0.75rem;
     background: #fafafa;
-    height: 180px;
+    height: 420px;
     position: relative;
 }
+
 .cost-perf-panel canvas {
     width: 100% !important;
-    height: 150px !important;
+    height: 360px !important;
 }
+
 .cost-perf-panel-title {
-    font-size: 0.75rem;
+    font-size: 0.95rem;
     font-weight: 700;
     color: #472183;
     text-align: center;
-    margin-bottom: 2px;
-}
-
-.section-title {
-    font-size: 1.1rem;
-    color: #472183;
-    margin: 1.5rem 0 0.75rem;
+    margin-bottom: 0.5rem;
 }
 
 /* === Model Tiles === */

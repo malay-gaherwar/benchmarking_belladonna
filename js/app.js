@@ -58,11 +58,33 @@ async function loadSummary() {
     return data;
 }
 
+function inferDatasetFile(id) {
+    return `/resources/benchmarks/expert/${id.replace(/^expert/i, '')}${id.startsWith('expert') ? 'expertquestions.json' : '.json'}`;
+}
+
 function deriveDatasetsFromSummary(summary) {
     const byId = new Map();
 
     const models = Array.isArray(summary?.models) ? summary.models : [];
     const datasetOrder = Array.isArray(summary?.dataset_order) ? summary.dataset_order : [];
+    const summaryDatasets = Array.isArray(summary?.datasets) ? summary.datasets : [];
+
+    for (const dsMeta of summaryDatasets) {
+        if (!dsMeta?.id) continue;
+        byId.set(dsMeta.id, {
+            id: dsMeta.id,
+            name: dsMeta.name || slugToTitle(dsMeta.id),
+            abbrev: dsMeta.abbrev || '',
+            source: dsMeta.source || dsMeta.name || slugToTitle(dsMeta.id),
+            sourceNote: dsMeta.sourceNote || '',
+            license: dsMeta.license || '—',
+            description: dsMeta.description || dsMeta.name || slugToTitle(dsMeta.id),
+            taskType: dsMeta.taskType || 'Multiple-choice benchmark',
+            questionCount: dsMeta.questionCount || 0,
+            categories: Array.isArray(dsMeta.categories) ? dsMeta.categories : [],
+            file: dsMeta.file || null
+        });
+    }
 
     for (const model of models) {
         const datasets = Array.isArray(model.datasets) ? model.datasets : [];
@@ -73,6 +95,7 @@ function deriveDatasetsFromSummary(summary) {
             const existing = byId.get(id) || {
                 id,
                 name: ds.dataset_name || slugToTitle(id),
+                abbrev: '',
                 source: ds.dataset_name || slugToTitle(id),
                 sourceNote: '',
                 license: '—',
@@ -93,16 +116,12 @@ function deriveDatasetsFromSummary(summary) {
         }
     }
 
-    const FILE_MAP = {
-        expert200: '/resources/benchmarks/expert/200expertquestions.json'
-    };
-
     const ids = datasetOrder.length ? datasetOrder : [...byId.keys()];
     return ids
         .filter(id => byId.has(id))
         .map(id => {
             const ds = byId.get(id);
-            ds.file = FILE_MAP[id] || ds.file || `/resources/benchmarks/${id}.json`;
+            ds.file = ds.file || inferDatasetFile(id);
             return ds;
         });
 }
@@ -113,7 +132,6 @@ async function ensureDatasetsLoaded() {
     const summary = await loadSummary();
     App.datasets = deriveDatasetsFromSummary(summary);
 
-    // Preload dataset metadata from wrapped dataset files
     await Promise.all(App.datasets.map(async (config) => {
         try {
             const resp = await fetch(config.file);
@@ -133,8 +151,12 @@ async function ensureDatasetsLoaded() {
                 config.license = raw.meta.license ?? config.license;
                 config.description = raw.meta.description ?? config.description;
                 config.taskType = raw.meta.taskType ?? config.taskType;
-                config.questionCount = raw.meta.questionCount ?? config.questionCount;
+                config.questionCount = raw.meta.questionCount ?? raw.questions?.length ?? config.questionCount;
                 config.categories = raw.meta.categories ?? config.categories;
+            } else if (Array.isArray(raw)) {
+                config.questionCount = raw.length || config.questionCount;
+            } else if (raw && Array.isArray(raw.questions)) {
+                config.questionCount = raw.questions.length || config.questionCount;
             }
         } catch (_) {
             // ignore metadata preload failures
@@ -143,6 +165,7 @@ async function ensureDatasetsLoaded() {
 
     return App.datasets;
 }
+
 /* --- Data loading --- */
 
 async function loadDataset(datasetId) {

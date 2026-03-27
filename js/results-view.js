@@ -47,12 +47,17 @@ async function loadSummary() {
     return App.summaryCache;
 }
 
-function getExpert200Dataset(model) {
-    return (model.datasets || []).find(d => d.dataset_id === 'expert200') || null;
+function getPrimaryDataset(model) {
+    return (model.datasets || [])[0] || null;
+}
+
+function getDatasetForColumn(model, column) {
+    if (!column || !column.dataset_id) return null;
+    return (model.datasets || []).find(d => d.dataset_id === column.dataset_id) || null;
 }
 
 function getHeatmapValue(model, column) {
-    const ds = getExpert200Dataset(model);
+    const ds = getDatasetForColumn(model, column);
     if (!ds) return null;
 
     if (column.type === 'dataset') {
@@ -60,13 +65,16 @@ function getHeatmapValue(model, column) {
             accuracy: ds.accuracy,
             correct: ds.correct,
             total: ds.total,
-            label: ds.dataset_name || 'Expert200'
+            label: ds.dataset_name || column.dataset_id
         };
     }
 
     if (column.type === 'kind') {
-        const kb = (ds.kind_breakdown || []).find(x => `kind::${x.kind}` === column.id);
+        const kb = (ds.kind_breakdown || []).find(
+            x => `${column.dataset_id}::kind::${x.kind}` === column.id
+        );
         if (!kb) return null;
+
         return {
             accuracy: kb.accuracy,
             correct: kb.correct,
@@ -79,7 +87,7 @@ function getHeatmapValue(model, column) {
 }
 
 function getKindBreakdown(model) {
-    const ds = getExpert200Dataset(model);
+    const ds = getPrimaryDataset(model);
     return ds?.kind_breakdown || [];
 }
 
@@ -127,7 +135,7 @@ function renderResultsContent(container, summary) {
     const heatmapColumns = summary.heatmap_columns || [];
 
     const dsNames = {};
-    for (const d of App.datasets) dsNames[d.id] = d.name;
+    for (const d of (App.datasets || [])) dsNames[d.id] = d.name;
 
     const ts = summary.generated ? new Date(summary.generated).toLocaleString() : '';
 
@@ -135,7 +143,6 @@ function renderResultsContent(container, summary) {
 
     const tiles = models.map((m, i) => {
         const catBadges = buildKindBadges(m);
-
         const totalTokens = (m.total_input_tokens || 0) + (m.total_output_tokens || 0);
         const hyper = hyperLabel(m);
 
@@ -222,7 +229,7 @@ function renderResultsContent(container, summary) {
             <div class="cost-perf-grid">
                 ${dsOrder.map(id => `<div class="cost-perf-panel">
                     <div class="cost-perf-panel-title">${escapeHtml(dsNames[id] || id)}</div>
-                    <canvas id="costPerf_${id}" width="300" height="200"></canvas>
+                    <canvas id="costPerf_${id}" width="520" height="320"></canvas>
                 </div>`).join('')}
             </div>
         </div>
@@ -414,7 +421,7 @@ function buildCostPerfCharts(models, dsOrder, dsNames) {
         models.forEach((m, i) => {
             const color = palette[i % palette.length];
             const label = m.display_name + (m.reasoning === true ? ' 💡' : '');
-            const d = m.datasets.find(d => d.dataset_id === dsId);
+            const d = (m.datasets || []).find(d => d.dataset_id === dsId);
             if (!d || d.cost_usd === 0) return;
 
             allPoints.push({ logCost: Math.log10(d.cost_usd), cost: d.cost_usd, acc: d.accuracy });
