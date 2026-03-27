@@ -24,15 +24,23 @@ API_URL = "https://openrouter.ai/api/v1/chat/completions"
 # reasoning=False means run with thinking off
 # effort=None means no effort limit; "low"/"medium"/"high" caps reasoning budget
 MODELS = [
+    ("qwen/qwen3.5-flash-02-23", True, None),
     ("qwen/qwen3.5-flash-02-23", False, None),
-
-    # NOTE: gemini-3.1-pro-preview rejects reasoning=off ("Reasoning is mandatory")
-
+    ("google/gemini-3.1-flash-lite-preview", None, None),
+    ("amazon/nova-micro-v1", None, None),
+    ("mistralai/mistral-nemo", None, None),
+    ("bytedance-seed/seed-2.0-mini", True, None),
+    ("bytedance-seed/seed-2.0-mini", False, None),
+    ("mistralai/ministral-8b-2512", None, None),
+    ("mistralai/ministral-3b-2512", None, None),
+    ("google/gemma-3-12b-it", None, None),
+    ("z-ai/glm-4.7-flash", True, None),
+    ("z-ai/glm-4.7-flash", False, None),
+    ("liquid/lfm2-8b-a1b", None, None),
 ]
 
 DATASETS = [
-    {"id": "expert200",      "name": "Expert200",      "file": "expert/200expertquestions.json"},
-    
+    {"id": "expert205", "name": "Expert205", "file": "expert/205expertquestions.json"},
 ]
 
 BENCHMARKS_DIR = Path(__file__).resolve().parent.parent / "resources" / "benchmarks"
@@ -46,9 +54,10 @@ SYSTEM_PROMPT = (
     "Do not include any explanation."
 )
 
+
 def get_hyperparameters(model, reasoning, effort=None):
     """Return the hyperparameters used for a given model run."""
-    params = {
+    return {
         "temperature": 0.7,
         "max_tokens": 4096 if reasoning is True else 32,
         "reasoning": reasoning,
@@ -58,11 +67,12 @@ def get_hyperparameters(model, reasoning, effort=None):
         "api": "openrouter",
         "api_url": API_URL,
     }
-    return params
+
 
 # ── Prompt ──────────────────────────────────────────────────────────────────
 
 OPTION_LABELS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
 
 def build_prompt(question):
     """Build a zero-shot MCQ prompt. Returns (system_msg, user_msg)."""
@@ -76,17 +86,36 @@ def build_prompt(question):
 
 def parse_answer(text, num_options):
     """Extract the answer letter from model response. Returns index or -1."""
-    # Strip any leaked <think>...</think> tags
-    text = re.sub(r'<think>.*?</think>', '', text, flags=re.DOTALL).strip()
+    text = re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL).strip()
     valid = set(OPTION_LABELS[:num_options])
-    # Try first character
+
     if text and text[0].upper() in valid:
         return OPTION_LABELS.index(text[0].upper())
-    # Try regex for "Answer: X" or similar
-    m = re.search(r'\b([A-Z])\b', text.upper())
+
+    m = re.search(r"\b([A-Z])\b", text.upper())
     if m and m.group(1) in valid:
         return OPTION_LABELS.index(m.group(1))
+
     return -1
+
+
+def load_dataset_questions(dataset_file: str) -> list[dict]:
+    """Load benchmark questions from either a plain list or a wrapped object."""
+    with open(BENCHMARKS_DIR / dataset_file, encoding="utf-8") as f:
+        raw = json.load(f)
+
+    if isinstance(raw, dict):
+        questions = raw.get("questions")
+        if not isinstance(questions, list):
+            raise ValueError(
+                f"Dataset {dataset_file} is a JSON object but has no valid 'questions' list"
+            )
+        return questions
+
+    if isinstance(raw, list):
+        return raw
+
+    raise ValueError(f"Unsupported dataset format in {dataset_file}")
 
 
 # ── API call ────────────────────────────────────────────────────────────────
@@ -123,12 +152,15 @@ async def call_api(session, model, system_msg, user_msg, sem, reasoning=None, ef
                         retry_after = float(resp.headers.get("Retry-After", RETRY_DELAY))
                         await asyncio.sleep(retry_after)
                         continue
+
                     body = await resp.json()
+
                     if resp.status != 200:
                         if attempt < MAX_RETRIES - 1:
                             await asyncio.sleep(RETRY_DELAY * (attempt + 1))
                             continue
                         return None, body.get("error", {}).get("message", str(resp.status))
+
                     choices = body.get("choices")
                     if not choices:
                         err_msg = body.get("error", {}).get("message", "no choices in response")
@@ -136,9 +168,11 @@ async def call_api(session, model, system_msg, user_msg, sem, reasoning=None, ef
                             await asyncio.sleep(RETRY_DELAY * (attempt + 1))
                             continue
                         return None, err_msg
+
                     content = choices[0]["message"]["content"]
                     usage = body.get("usage", {})
                     return content, usage
+
             except (asyncio.TimeoutError, aiohttp.ClientError) as e:
                 if attempt < MAX_RETRIES - 1:
                     await asyncio.sleep(RETRY_DELAY * (attempt + 1))
@@ -159,17 +193,15 @@ async def run_worker(session, model, dataset, sem, progress, reasoning=None, eff
             model_slug += f"-{effort}"
     elif reasoning is False:
         model_slug += "__reasoning-off"
+
     ds_id = dataset["id"]
     result_file = RESULTS_DIR / f"{model_slug}__{ds_id}.json"
 
-    # Load dataset
-    with open(BENCHMARKS_DIR / dataset["file"]) as f:
-        questions = json.load(f)
+    questions = load_dataset_questions(dataset["file"])
 
-    # Load existing progress if resuming
     completed = {}
     if result_file.exists():
-        with open(result_file) as f:
+        with open(result_file, encoding="utf-8") as f:
             existing = json.load(f)
         for r in existing.get("answers", []):
             completed[r["id"]] = r
@@ -229,21 +261,41 @@ async def run_worker(session, model, dataset, sem, progress, reasoning=None, eff
         done += 1
         progress[label] = f"{done}/{total}"
 
-        # Save incrementally every 50 questions
         if done % 50 == 0 or done == total:
-            save_result(result_file, model, dataset, answers, total,
-                        correct, errors, total_input_tokens, total_output_tokens, total_cost, reasoning, effort)
+            save_result(
+                result_file,
+                model,
+                dataset,
+                answers,
+                total,
+                correct,
+                errors,
+                total_input_tokens,
+                total_output_tokens,
+                total_cost,
+                reasoning,
+                effort,
+            )
 
-    # Process questions with limited concurrency per worker
-    # Larger batches for thinking models since each request takes longer
     batch_size = 20 if reasoning is True else 10
     for i in range(0, len(remaining), batch_size):
         batch = remaining[i:i + batch_size]
         await asyncio.gather(*(process_question(q) for q in batch))
 
-    # Final save
-    save_result(result_file, model, dataset, answers, total,
-                correct, errors, total_input_tokens, total_output_tokens, total_cost, reasoning, effort)
+    save_result(
+        result_file,
+        model,
+        dataset,
+        answers,
+        total,
+        correct,
+        errors,
+        total_input_tokens,
+        total_output_tokens,
+        total_cost,
+        reasoning,
+        effort,
+    )
     progress[label] = f"{done}/{total} (complete)"
 
 
@@ -265,18 +317,18 @@ def save_result(path, model, dataset, answers, total, correct, errors,
         "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "answers": sorted(answers, key=lambda a: a["id"]),
     }
-    path.write_text(json.dumps(result, indent=2))
+    path.write_text(json.dumps(result, indent=2), encoding="utf-8")
 
 
 # ── Summary builder ─────────────────────────────────────────────────────────
 
 def build_summary():
-    """Build summary.json from all result files for the web frontend."""
+    """Build raw_summary.json from all result files for the web frontend."""
     results = []
     for f in sorted(RESULTS_DIR.glob("*.json")):
         if f.name in ("summary.json", "raw_summary.json"):
             continue
-        with open(f) as fh:
+        with open(f, encoding="utf-8") as fh:
             data = json.load(fh)
         results.append({
             "model": data["model"],
@@ -296,7 +348,7 @@ def build_summary():
         "generated": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "results": results,
     }
-    (RESULTS_DIR / "raw_summary.json").write_text(json.dumps(summary, indent=2))
+    (RESULTS_DIR / "raw_summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
     print(f"\nRaw summary written to {RESULTS_DIR / 'raw_summary.json'}")
     print("Run 'python3 bench/build_dashboard.py' to rebuild the dashboard summary.")
 
@@ -308,7 +360,7 @@ def progress_bar(done, total, width=20):
     if total == 0:
         return f"[{'?' * width}]"
     filled = int(width * done / total)
-    bar = '█' * filled + '░' * (width - filled)
+    bar = "█" * filled + "░" * (width - filled)
     pct = done / total * 100
     return f"[{bar}] {pct:5.1f}%  {done}/{total}"
 
@@ -317,19 +369,17 @@ async def print_progress(progress, interval=5):
     """Periodically print progress with ASCII bars."""
     while True:
         await asyncio.sleep(interval)
-        # Group by model
         models = {}
         for label, status in sorted(progress.items()):
-            model = label.split('|')[0].strip()
+            model = label.split("|")[0].strip()
             if model not in models:
-                models[model] = {'done': 0, 'total': 0, 'datasets': []}
-            # Parse "123/456" or "123/456 (complete)"
-            parts = status.strip().split('/')
+                models[model] = {"done": 0, "total": 0, "datasets": []}
+            parts = status.strip().split("/")
             d = int(parts[0])
             t = int(parts[1].split()[0])
-            models[model]['done'] += d
-            models[model]['total'] += t
-            models[model]['datasets'].append((label.split('|')[1].strip(), d, t))
+            models[model]["done"] += d
+            models[model]["total"] += t
+            models[model]["datasets"].append((label.split("|")[1].strip(), d, t))
 
         print(f"\n{'═' * 60}")
         print(f"  BENCHMARK PROGRESS  {time.strftime('%H:%M:%S')}")
@@ -337,12 +387,10 @@ async def print_progress(progress, interval=5):
         for model, info in models.items():
             print(f"\n  {model}")
             print(f"  {progress_bar(info['done'], info['total'], 30)}")
-            # Show individual datasets on one compact line
-            complete = sum(1 for _, d, t in info['datasets'] if d == t)
+            complete = sum(1 for _, d, t in info["datasets"] if d == t)
             print(f"  Datasets: {complete}/{len(info['datasets'])} complete")
-        # Overall
-        all_done = sum(m['done'] for m in models.values())
-        all_total = sum(m['total'] for m in models.values())
+        all_done = sum(m["done"] for m in models.values())
+        all_total = sum(m["total"] for m in models.values())
         print(f"\n  {'─' * 40}")
         print(f"  OVERALL  {progress_bar(all_done, all_total, 30)}")
         print(f"{'═' * 60}")
@@ -354,7 +402,6 @@ async def print_progress(progress, interval=5):
 async def main():
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
-    # Optional CLI filter: python3 run.py model1 model2 ...
     model_filter = set(sys.argv[1:]) if len(sys.argv) > 1 else None
     models = MODELS
     if model_filter:
@@ -363,12 +410,9 @@ async def main():
             print(f"No matching models for filter: {model_filter}")
             return
 
-    # Per-model concurrency — thinking models need more parallel requests
-    # to compensate for their longer response times
     def sem_size(reasoning):
         return 30 if reasoning is True else 20
 
-    # Build semaphores keyed by (model, reasoning)
     model_sems = {
         (model, reasoning): asyncio.Semaphore(sem_size(reasoning))
         for model, reasoning, effort in models
@@ -387,31 +431,38 @@ async def main():
                 )
 
         print(f"Starting {len(workers)} workers ({len(models)} model configs x {len(DATASETS)} datasets)")
-        print(f"Models: {', '.join(m.split('/')[-1] + (' (think' + (',effort=' + e if e else '') + ')' if r is True else ' (no-think)' if r is False else '') for m, r, e in models)}")
-        print(f"Total questions per model: {sum(len(json.load(open(BENCHMARKS_DIR / d['file']))) for d in DATASETS)}")
+        print(
+            "Models: "
+            + ", ".join(
+                m.split("/")[-1]
+                + (" (think" + (",effort=" + e if e else "") + ")" if r is True else " (no-think)" if r is False else "")
+                for m, r, e in models
+            )
+        )
+        print(f"Total questions per model: {sum(len(load_dataset_questions(d['file'])) for d in DATASETS)}")
         sys.stdout.flush()
 
         await asyncio.gather(*workers)
 
     progress_task.cancel()
 
-    # Build summary for frontend
     build_summary()
 
-    # Print final results
     print("\n" + "=" * 70)
     print("FINAL RESULTS")
     print("=" * 70)
     for f in sorted(RESULTS_DIR.glob("*.json")):
         if f.name in ("summary.json", "raw_summary.json"):
             continue
-        with open(f) as fh:
+        with open(f, encoding="utf-8") as fh:
             data = json.load(fh)
         model_short = data["model"].split("/")[-1]
-        print(f"  {model_short:20s} | {data['dataset_name']:12s} | "
-              f"Acc: {data['accuracy']:6.2f}% | "
-              f"{data['correct']}/{data['total']} correct | "
-              f"{data['errors']} errors")
+        print(
+            f"  {model_short:20s} | {data['dataset_name']:12s} | "
+            f"Acc: {data['accuracy']:6.2f}% | "
+            f"{data['correct']}/{data['total']} correct | "
+            f"{data['errors']} errors"
+        )
 
 
 if __name__ == "__main__":

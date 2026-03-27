@@ -13,6 +13,8 @@ resources/
 bench/*.log
 bench/run.log
 
+results/
+
 # Python
 __pycache__/
 *.pyc
